@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.Scanner;
 
 public class main {
     public static void main (String[] args) {
@@ -54,17 +55,70 @@ public class main {
 
 
 
-        // operators
-        int a = 1;
-        int b = 2;
-        int add = a+b;
-        System.out.println(add);
+        // // operators
+        // int a = 1;
+        // int b = 2;
+        // int add = a+b;
+        // System.out.println(add);
 
-        System.out.println(Math.min(a,b));
-        System.out.println(Math.max(a,b));
-        System.out.println((int)(Math.random()*100));
 
+
+        // System.out.println(Math.min(a,b));
+        // System.out.println(Math.max(a,b));
+        // System.out.println((int)(Math.random()*100));
+
+        // Scanner sc = new Scanner(System.in);
+        // System.out.println("Input Your age: ");
+        // int age = sc.nextInt();
+        // System.out.println(age);
+
+
+        // Taking the input from user
+        // Scanner sc = new Scanner(System.in);
+        // System.out.println("Enter your age: ");
+        // int age = sc.nextInt();
+        // System.out.println(age);
         
+        // Scanner sc = new Scanner(System.in);
+        // System.out.println("Enter your name");
+        // String name = sc.nextLine();
+        // System.out.println(name);
 
+        // // Comparasion Operator
+        // // Conditional statement 
+        
+        // boolean isSunUp = true;
+        // if(isSunUp == true){
+        //     System.out.println("day");
+        // } else{
+        //     System.out.println("Night");
+        // }
+
+        // Scanner sc = new Scanner(System.in);
+        // System.out.println("Enter your age: ");
+        // int age = sc.nextInt();
+
+        // if(age >= 18)
+        //     System.out.println("you are able to vote");
+
+        // else 
+        //     System.out.println("you are not able to vote");
+
+
+        int a = 60;
+        int b = 40;
+
+
+        // if(a < 50 && b<50)
+        //     System.out.println("both less than 50");
+
+        // else 
+        //     System.out.println("not not true");
+
+        if(a<50 || b>50)
+            System.out.println("Atlest one is greater than 50");
+
+        else 
+            System.out.println("False");
     }
 }
