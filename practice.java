@@ -48,9 +48,23 @@ public class main {
         // System.out.println(fp);
 
         //Constants
-        final float pi = 3.145F;
+        // final float pi = 3.145F;
         
-        System.out.println(pi);
+        // System.out.println(pi);
+
+
+
+        // operators
+        int a = 1;
+        int b = 2;
+        int add = a+b;
+        System.out.println(add);
+
+        System.out.println(Math.min(a,b));
+        System.out.println(Math.max(a,b));
+        System.out.println((int)(Math.random()*100));
+
+        
 
     }
 }
