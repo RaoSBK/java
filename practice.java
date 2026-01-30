@@ -105,8 +105,8 @@ public class main {
         //     System.out.println("you are not able to vote");
 
 
-        int a = 60;
-        int b = 40;
+        // int a = 60;
+        // int b = 40;
 
 
         // if(a < 50 && b<50)
@@ -115,10 +115,25 @@ public class main {
         // else 
         //     System.out.println("not not true");
 
-        if(a<50 || b>50)
-            System.out.println("Atlest one is greater than 50");
+        // if(a<50 || b>50)
+        //     System.out.println("Atlest one is greater than 50");
 
-        else 
-            System.out.println("False");
+        // else 
+        //     System.out.println("False");
+
+
+        // problem the pen price is 10 rupee and notebook price is 40 so determine the user they have willing to buy or not
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter your course");
+        int cash = sc.nextInt();
+
+        if(cash < 10){
+            System.out.println("your are not able to buy anything ");
+            Systme.out.println("Take more cash")
+        }
+        else if(cash >= 10 && cash< 50){
+            System.out.println("Your are albe to buy both pen and notebook too");
+        }
+        else if(cash )
     }
 }
