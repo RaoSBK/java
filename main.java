@@ -76,38 +76,38 @@
 
 
 // Hirerachical inhertience
-import java.util.Scanner;
-class InputNumbers {
-    public int num1, num2;
-    Scanner sc= new Scanner(System.in);
-    public void getInputs(){
-        System.out.print("Enter first number: ");
-        num1 = sc.nextInt();
-        System.out.print("Enter second number");
-        num2 = sc.nextInt();
-    }
-}
+// import java.util.Scanner;
+// class InputNumbers {
+//     public int num1, num2;
+//     Scanner sc= new Scanner(System.in);
+//     public void getInputs(){
+//         System.out.print("Enter first number: ");
+//         num1 = sc.nextInt();
+//         System.out.print("Enter second number");
+//         num2 = sc.nextInt();
+//     }
+// }
 
-class Adder  extends InputNumbers {
-    public void calculateSum(){
-        System.out.println("Sum"+(num1+num2));
-    }
-}
+// class Adder  extends InputNumbers {
+//     public void calculateSum(){
+//         System.out.println("Sum"+(num1+num2));
+//     }
+// }
 
-class Multiplier extends InputNumbers {
-    public void calculateProduct(){
-        System.out.println("Porduct:" + (num1*num2));
-    }
-}
+// class Multiplier extends InputNumbers {
+//     public void calculateProduct(){
+//         System.out.println("Porduct:" + (num1*num2));
+//     }
+// }
 
-public class Main{
-    public static void main(String[]args){
-        Adder add = new Adder();
-        add.getInputs();
-        add.calculateSum();
+// public class Main{
+//     public static void main(String[]args){
+//         Adder add = new Adder();
+//         add.getInputs();
+//         add.calculateSum();
 
-        Multiplier mul = new Multiplier();
-        mul.getInputs();
-        mul.calculateProduct();
-    }
-}
+//         Multiplier mul = new Multiplier();
+//         mul.getInputs();
+//         mul.calculateProduct();
+//     }
+// }
