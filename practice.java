@@ -122,18 +122,37 @@ public class main {
         //     System.out.println("False");
 
 
-        // problem the pen price is 10 rupee and notebook price is 40 so determine the user they have willing to buy or not
-        Scanner sc= new Scanner(System.in);
-        System.out.println("Enter your course");
-        int cash = sc.nextInt();
+        // // problem the pen price is 10 rupee and notebook price is 40 so determine the user they have willing to buy or not
+        // Scanner sc= new Scanner(System.in);
+        // System.out.println("Enter your course");
+        // int cash = sc.nextInt();
 
-        if(cash < 10){
-            System.out.println("your are not able to buy anything ");
-            Systme.out.println("Take more cash")
-        }
-        else if(cash >= 10 && cash< 50){
-            System.out.println("Your are albe to buy both pen and notebook too");
-        }
-        else if(cash )
+        // if(cash < 10){
+        //     System.out.println("your are not able to buy anything ");
+        //     Systme.out.println("Take more cash")
+        // }
+        // else if(cash >= 10 && cash< 50){
+        //     System.out.println("Your are albe to buy both pen and notebook too");
+        // }
+        // else if(cash )
+
+
+        // WAP to find the biggest of  threee numbers 
+                // Scanner sc = new Scanner(System.in);
+                // System.out.println("Enter the value of three numbers");
+                // int n1 = sc.nextInt();
+                // int n2 = sc.nextInt();
+                // int n3 = sc.nextInt();
+
+                // System.out.println("Biggest of three number is: ");
+                // if(n1 > n2 && n1 > n3){
+                //     System.out.println("Biggest is "+n1);
+                // }  else if(n2>n1 && n2>n3){
+                //     System.out.println("Biggest is "+n2);
+                // } else if(n3>n1 && n3>n2){
+                //     System.out.println("Biggest is "+n3);
+                // } else {
+                //     System.out.println("Input is invalid");
+                // }
     }
 }
