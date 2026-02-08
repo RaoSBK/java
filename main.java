@@ -41,7 +41,6 @@
 
 // class Num1{
 //     protected int num1;
-
 //     public void input1(){
 //         Scanner sc = new Scanner(System.in);
 //         System.out.println("Enter first number");
@@ -111,3 +110,27 @@
 //         mul.calculateProduct();
 //     }
 // }
+
+class A{
+    final int a;
+    int sum;
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the number");
+    a = sc.nextInt();
+    
+    class e_sum{
+        for(int i=0; i<=n; i++){
+            if(i%2==0){
+                sum = sum+i;
+            }
+        }
+        System.out.println("Sum of the even number"+n+" = "+sum);
+    }
+}
+
+
+class D{
+    public static void main(strings Args[]){
+        A obj = new obj A();
+    }
+}
