@@ -111,6 +111,9 @@
 //     }
 // }
 
+
+import java.util.*;
+import java.util.Scanner;
 class A{
     final int a;
     int sum;

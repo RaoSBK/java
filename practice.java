@@ -154,5 +154,22 @@ public class main {
                 // } else {
                 //     System.out.println("Input is invalid");
                 // } 
+
+
+
+        //Create a program that keeps track of the biggest and lowest value in an array
+        
+        int num[]= {756,6554,890,7563,5935,0553};
+        int max = num[0]; 
+        int min = num[0];
+        for(int i=num[0]; i<num.length; i++){
+            if(i>max){
+                max = i;
+            } else {
+                min = i;
+            }
+            System.out.println("Max = "+max);
+            System.out.println("Min = "+min);
+        }
     }
 }

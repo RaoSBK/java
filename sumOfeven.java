@@ -5,7 +5,7 @@ abstract class a{
 class B extends a{
     void getdata()
     {
-       public final a = 20;
+       Public final int a = 20;
     }
     int sum123(){
         int sum = 0;
