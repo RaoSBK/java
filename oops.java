@@ -75,29 +75,111 @@
 //polymorphism 
 
 
-class Student{
-    String name;
-    int age;
+// class Student{
+//     String name;
+//     int age;
 
-    public void printInfo(String name){
-        System.out.println(name);
+//     public void printInfo(String name){
+//         System.out.println(name);
+//     }
+
+//     public void printInfo(int age){
+//         System.out.println(age);
+//     }
+
+//     public void printInfo(String name, int age){
+//         System.out.println(name+" "+ age);
+//     }
+// }
+
+// public class oops{
+//     public static void main(String args[]){
+//         Student s1 = new Student();
+//         s1.name = "Suraj Bhan";
+//         s1.age = 19;
+//         s1.printInfo(s1.name, s1.age);
+        
+//     }
+// }
+
+
+// Inheritance 
+
+// class Shape {
+//     String color;
+//     int area;
+// }
+
+// class Triangle extends Shape{
+//     public void area(int l, int b){
+//         System.out.println((0.5)*l*b);
+//     }
+// }
+
+// class Circle extends Shape{
+//     public void area(int r){
+//         System.out.println((3.14)*r*r);
+//     }
+// }
+
+// public class oops{
+//     public static void main(String args[]){
+//         Triangle t1 = new Triangle();
+//         t1.area(5, 4);
+
+
+//         Circle c1 = new Circle();
+//         c1.area(32);
+
+        
+//     }
+// }
+
+
+// single inhertitance 
+
+import java.util.Scanner;
+
+class Calculation{
+    int num1;
+    int num2;
+
+    public void input(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first number: ");
+        this.num1 = sc.nextInt();
+
+        System.out.println("Enter the second number");
+        this.num2 = sc.nextInt();
     }
+    
+}
 
-    public void printInfo(int age){
-        System.out.println(age);
+class Sum extends Calculation{
+
+    public void result(){
+        int res = this.num1 + this.num2;
+        System.out.println(res);
     }
+}
 
-    public void printInfo(String name, int age){
-        System.out.println(name+" "+ age);
+class Subtraction extends Calculation{
+    public void result(){
+        int res = this.num1-this.num2;
+        System.out.println(res);
     }
 }
 
 public class oops{
     public static void main(String args[]){
-        Student s1 = new Student();
-        s1.name = "Suraj Bhan";
-        s1.age = 19;
-        s1.printInfo(s1.name, s1.age);
+
+        Sum s1 = new Sum();
+        s1.input();
+        s1.result();
         
+
+        Subtraction s2 = new Subtraction();
+        s2.input();
+        s2.result();
     }
 }
