@@ -138,48 +138,96 @@
 
 // single inhertitance 
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
-class Calculation{
-    int num1;
-    int num2;
+// class Calculation{
+//     int num1;
+//     int num2;
 
-    public void input(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the first number: ");
-        this.num1 = sc.nextInt();
+//     public void input(){
+//         Scanner sc = new Scanner(System.in);
+//         System.out.println("Enter the first number: ");
+//         this.num1 = sc.nextInt();
 
-        System.out.println("Enter the second number");
-        this.num2 = sc.nextInt();
-    }
+//         System.out.println("Enter the second number");
+//         this.num2 = sc.nextInt();
+//     }
     
-}
+// }
 
-class Sum extends Calculation{
+// class Sum extends Calculation{
 
-    public void result(){
-        int res = this.num1 + this.num2;
-        System.out.println(res);
-    }
-}
+//     public void result(){
+//         int res = this.num1 + this.num2;
+//         System.out.println(res);
+//     }
+// }
 
-class Subtraction extends Calculation{
-    public void result(){
-        int res = this.num1-this.num2;
-        System.out.println(res);
-    }
-}
+// class Subtraction extends Calculation{
+//     public void result(){
+//         int res = this.num1-this.num2;
+//         System.out.println(res);
+//     }
+// }
 
-public class oops{
-    public static void main(String args[]){
+// public class oops{
+//     public static void main(String args[]){
 
-        Sum s1 = new Sum();
-        s1.input();
-        s1.result();
+//         Sum s1 = new Sum();
+//         s1.input();
+//         s1.result();
         
 
-        Subtraction s2 = new Subtraction();
-        s2.input();
-        s2.result();
+//         Subtraction s2 = new Subtraction();
+//         s2.input();
+//         s2.result();
+//     }
+// }
+
+
+// WAP to demonstrate interface
+
+// import java.util.Scanner;
+
+// interface Add{
+//     void sum (int a, int b);
+// }
+
+// class Calculation implements Add{
+
+//     public void result(int a, int b){
+//         int res = a+b;
+//         System.out.println("Sum = "+ res);
+//     }
+// }
+
+// public class oop{
+//     public static void main(String args[]){
+//         Add obj = new Calculation();
+//         obj.result(5,4);
+//     }
+// }
+
+
+// Step 1: Create Interface
+interface Add {
+    void sum(int a, int b);
+}
+
+// Step 2: Implement Interface
+class Calculation implements Add {
+
+    public void sum(int a, int b) {
+        int result = a + b;
+        System.out.println("Sum = " + result);
+    }
+}
+
+// Step 3: Main Class
+public class oops {
+    public static void main(String[] args) {
+
+        Add obj = new Calculation();   // Interface reference
+        obj.sum(10, 20);
     }
 }
