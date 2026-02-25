@@ -17,40 +17,58 @@
 
 
 
-interface A {
-    final int a=10;
-    final int b=20;
-    abstract void sum();
-}
+// interface A {
+//     final int a=10;
+//     final int b=20;
+//     abstract void sum();
+// }
 
-interface B {
-    abstract void sum();
-}
+// interface B {
+//     abstract void sum();
+// }
 
 
-class p implements A,B{
- int a,b,c;
-  public void  sum(){
-        System.out.println("The sum of  the two numbers is: "+(a+b));
-    }public void sub() {
-        c = a-b;
-        System.out.println("The subtraction of the two numebrs is: "+c);
-    } 
-    void getdata(){
-        a=10;
-        b=20;
-        System.out.println((a+b));
+// class p implements A,B{
+//  int a,b,c;
+//   public void  sum(){
+//         System.out.println("The sum of  the two numbers is: "+(a+b));
+//     }public void sub() {
+//         c = a-b;
+//         System.out.println("The subtraction of the two numebrs is: "+c);
+//     } 
+//     void getdata(){
+//         a=10;
+//         b=20;
+//         System.out.println((a+b));
+//     }
+
+// }
+// class suraj {
+//     public static void main(String args[]){
+//         p obj = new p();
+//         obj.getdata();
+//         A obj1=new p();
+//         B obj2=new p();
+        
+//         obj1.sum();
+//         obj2.sum();
+//     }
+// }
+
+
+// Throwing a build-in exception
+import java.util.*;
+import java.lang;
+public class suraj{
+    static void checkAge(int age){
+        if (age< 18){
+            throw new suraj("Access denied - You must be at least 18 years old ");
+        } else {
+            System.out.println("Access granted- You are old enough!");
+        }
     }
 
-}
-class suraj {
     public static void main(String args[]){
-        p obj = new p();
-        obj.getdata();
-        A obj1=new p();
-        B obj2=new p();
-        
-        obj1.sum();
-        obj2.sum();
+        checkAge(15);
     }
 }
