@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class ArithmeticException1{
     static void checkAge(int age){
@@ -12,6 +12,10 @@ public class ArithmeticException1{
     }
 
     public static void main(String args[]){
-        checkAge(0);
-    }
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the age: ");
+        int age = sc.nextInt();
+        checkAge(age);
+    }    
+    
 }
