@@ -248,62 +248,204 @@
 
 //Ans:-
 
+// import java.util.Scanner;
+
+// // Abstract class
+// abstract class Operation {
+//     // Abstract method
+//     abstract int calculate(int a, int b);
+// }
+
+// // Subclass for Addition
+// class Add extends Operation {
+//     @Override
+//     int calculate(int a, int b) {
+//         return a + b;
+//     }
+// }
+
+// // Subclass for Multiplication
+// class Multiply extends Operation {
+//     @Override
+//     int calculate(int a, int b) {
+//         return a * b;
+//     }
+// }
+
+// public class revise1{
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         System.out.print("Enter first number: ");
+//         int a = sc.nextInt();
+
+//         System.out.print("Enter second number: ");
+//         int b = sc.nextInt();
+
+//         System.out.println("\nChoose operation:");
+//         System.out.println("1. Addition");
+//         System.out.println("2. Multiplication");
+//         int choice = sc.nextInt();
+
+//         // Parent class reference
+//         Operation op;
+
+//         switch (choice) {
+//             case 1:
+//                 op = new Add(); // runtime polymorphism
+//                 System.out.println("Result = " + op.calculate(a, b));
+//                 break;
+
+//             case 2:
+//                 op = new Multiply(); // runtime polymorphism
+//                 System.out.println("Result = " + op.calculate(a, b));
+//                 break;
+
+//             default:
+//                 System.out.println("Invalid choice!");
+//         }
+
+//         sc.close();
+//     }
+// }
+
+
+// Runtime Polymorphism + Abstract Class + Arithmetic
+
+// Write a Java program where:
+
+// Create an abstract class Operation
+// Declare abstract method calculate(int a, int b)
+// Create two subclasses:
+// Add
+// Multiply
+// Override method in both classes
+// Use parent class reference to call methods (runtime polymorphism)
+// Take input using Scanner
+
+
+// import java.util.Scanner;
+
+// // Abstract class
+// abstract class Operation {
+//     // Abstract method
+//     abstract int calculate(int a, int b);
+// }
+
+// // Subclass for Addition
+// class Add extends Operation {
+//     @Override
+//     int calculate(int a, int b) {
+//         return a + b;
+//     }
+// }
+
+// // Subclass for Multiplication
+// class Multiply extends Operation {
+//     @Override
+//     int calculate(int a, int b) {
+//         return a * b;
+//     }
+// }
+
+// public class revise1 {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+
+//         // Taking input
+//         System.out.print("Enter first number: ");
+//         int a = sc.nextInt();
+
+//         System.out.print("Enter second number: ");
+//         int b = sc.nextInt();
+
+//         // Runtime polymorphism: parent reference, child object
+//         Operation op;
+
+//         // Addition
+//         op = new Add();
+//         System.out.println("Addition: " + op.calculate(a, b));
+
+//         // Multiplication
+//         op = new Multiply();
+//         System.out.println("Multiplication: " + op.calculate(a, b));
+
+//         sc.close();
+//     }
+// }
+
+
+// ✅ Question 7 — Array + Interface + Even/Odd Sum
+
+// Write a Java program using interface where:
+
+// Interface ArrayOperation
+// Method → process(int arr[])
+// Class EvenSum → sum of even numbers
+// Class OddSum → sum of odd numbers
+// Take array input from user
+// Call both operations
+
+
 import java.util.Scanner;
 
-// Abstract class
-abstract class Operation {
-    // Abstract method
-    abstract int calculate(int a, int b);
+// Interface
+interface ArrayOperation {
+    int process(int arr[]);
 }
 
-// Subclass for Addition
-class Add extends Operation {
+// Class to calculate sum of even numbers
+class EvenSum implements ArrayOperation {
     @Override
-    int calculate(int a, int b) {
-        return a + b;
+    public int process(int arr[]) {
+        int sum = 0;
+        for (int num : arr) {
+            if (num % 2 == 0) {
+                sum += num;
+            }
+        }
+        return sum;
     }
 }
 
-// Subclass for Multiplication
-class Multiply extends Operation {
+// Class to calculate sum of odd numbers
+class OddSum implements ArrayOperation {
     @Override
-    int calculate(int a, int b) {
-        return a * b;
+    public int process(int arr[]) {
+        int sum = 0;
+        for (int num : arr) {
+            if (num % 2 != 0) {
+                sum += num;
+            }
+        }
+        return sum;
     }
 }
 
-public class revise1{
+public class revise1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter first number: ");
-        int a = sc.nextInt();
+        // Taking array input
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
 
-        System.out.print("Enter second number: ");
-        int b = sc.nextInt();
-
-        System.out.println("\nChoose operation:");
-        System.out.println("1. Addition");
-        System.out.println("2. Multiplication");
-        int choice = sc.nextInt();
-
-        // Parent class reference
-        Operation op;
-
-        switch (choice) {
-            case 1:
-                op = new Add(); // runtime polymorphism
-                System.out.println("Result = " + op.calculate(a, b));
-                break;
-
-            case 2:
-                op = new Multiply(); // runtime polymorphism
-                System.out.println("Result = " + op.calculate(a, b));
-                break;
-
-            default:
-                System.out.println("Invalid choice!");
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
+
+        // Using interface reference for runtime polymorphism
+        ArrayOperation op;
+
+        // Even sum
+        op = new EvenSum();
+        System.out.println("Sum of even numbers: " + op.process(arr));
+
+        // Odd sum
+        op = new OddSum();
+        System.out.println("Sum of odd numbers: " + op.process(arr));
 
         sc.close();
     }
