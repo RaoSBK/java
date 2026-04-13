@@ -210,24 +210,72 @@
 
 
 // Step 1: Create Interface
-interface Add {
-    void sum(int a, int b);
-}
+// interface Add {
+//     void sum(int a, int b);
+// }
 
-// Step 2: Implement Interface
-class Calculation implements Add {
+// // Step 2: Implement Interface
+// class Calculation implements Add {
 
-    public void sum(int a, int b) {
-        int result = a + b;
-        System.out.println("Sum = " + result);
+//     public void sum(int a, int b) {
+//         int result = a + b;
+//         System.out.println("Sum = " + result);
+//     }
+// }
+
+// // Step 3: Main Class
+// public class oops {
+//     public static void main(String[] args) {
+
+//         Add obj = new Calculation();   // Interface reference
+//         obj.sum(10, 20);
+//     }
+// }
+
+
+
+
+// //program to find out the area and perimeter of rectangle using Class, object methods
+
+// class Rectangle{
+//     double l,  b;
+//     void perarea(){
+//         System.out.println("perimeter "+ 2*(l+b));
+//         System.out.println("Areas is "+ (l+b));
+//     }
+// }
+
+// class oops{
+//     public static void main(String args[]){
+//         Rectangle rectnew = new Rectangle();
+
+//         rectnew.l = 20;
+//         rectnew.b = 30;
+        
+//         rectnew.perarea();
+//     }
+// }
+
+
+
+
+// Method overloading 
+class MethodOverload{
+    static int addMethod(int n1, int n2){
+        return n1+n2;
     }
-}
 
-// Step 3: Main Class
-public class oops {
-    public static void main(String[] args) {
 
-        Add obj = new Calculation();   // Interface reference
-        obj.sum(10, 20);
+    static double addMethod(double x, double y){
+        return x+y;
+    }
+
+
+    public static void main(String args[]){
+        int iobj = addMethod(11,22);
+        double dobj = addMethod(5.23, 6.43);
+
+        System.out.println("Interger value"+ iobj);
+        System.out.println("float value"+ dobj);
     }
 }
