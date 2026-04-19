@@ -259,23 +259,111 @@
 
 
 
-// Method overloading 
-class MethodOverload{
-    static int addMethod(int n1, int n2){
-        return n1+n2;
+// // Method overloading 
+// class MethodOverload{
+//     static int addMethod(int n1, int n2){
+//         return n1+n2;
+//     }
+
+
+//     static double addMethod(double x, double y){
+//         return x+y;
+//     }
+
+
+//     public static void main(String args[]){
+//         int iobj = addMethod(11,22);
+//         double dobj = addMethod(5.23, 6.43);
+
+//         System.out.println("Interger value"+ iobj);
+//         System.out.println("float value"+ dobj);
+//     }
+// }
+
+
+
+// Q
+// Write a Java program to create a generic class that stores two values of different types and displays them. Demonstrate its use with:
+
+// Integer & String
+// Double & Character
+
+// 👉 Focus:
+
+// Generic class syntax
+// Multiple type parameters <T, U>
+
+
+
+// class Pair<T, U> {
+//     private T first;
+//     private U second;
+
+//     public Pair(T first, U second) {
+//         this.first = first;
+//         this.second = second;
+//     }
+
+//     public void display() {
+//         System.out.println("First value: " + first);
+//         System.out.println("Second value: " + second);
+//     }
+// }
+
+// public class GenericDemo {
+//     public static void main(String[] args) {
+//         Pair<Integer, String> pair1 = new Pair<>(100, "Hello");
+//         System.out.println("Pair 1 (Integer & String):");
+//         pair1.display();
+
+//         System.out.println();
+
+//         Pair<Double, Character> pair2 = new Pair<>(99.99, 'A');
+//         System.out.println("Pair 2 (Double & Character):");
+//         pair2.display();
+//     }
+// }
+
+
+// Q.
+// Write a Java program using a bounded generic type to find the maximum of three numbers. The program should work for:
+
+// Integer
+// Double
+
+// 👉 Constraint:
+
+// Use <T extends Comparable<T>>
+
+class MaximumFinder<T extends Comparable<T>> {
+    private T first;
+    private T second;
+    private T third;
+
+    public MaximumFinder(T first, T second, T third) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
     }
 
-
-    static double addMethod(double x, double y){
-        return x+y;
+    public T findMaximum() {
+        T max = first;
+        if (second.compareTo(max) > 0) {
+            max = second;
+        }
+        if (third.compareTo(max) > 0) {
+            max = third;
+        }
+        return max;
     }
+}
 
+public class BoundedGenericDemo {
+    public static void main(String[] args) {
+        MaximumFinder<Integer> intMax = new MaximumFinder<>(10, 25, 15);
+        System.out.println("Maximum of Integers: " + intMax.findMaximum());
 
-    public static void main(String args[]){
-        int iobj = addMethod(11,22);
-        double dobj = addMethod(5.23, 6.43);
-
-        System.out.println("Interger value"+ iobj);
-        System.out.println("float value"+ dobj);
+        MaximumFinder<Double> doubleMax = new MaximumFinder<>(12.5, 7.8, 19.3);
+        System.out.println("Maximum of Doubles: " + doubleMax.findMaximum());
     }
 }
