@@ -335,35 +335,91 @@
 
 // Use <T extends Comparable<T>>
 
-class MaximumFinder<T extends Comparable<T>> {
-    private T first;
-    private T second;
-    private T third;
+// class MaximumFinder<T extends Comparable<T>> {
+//     private T first;
+//     private T second;
+//     private T third;
 
-    public MaximumFinder(T first, T second, T third) {
-        this.first = first;
-        this.second = second;
-        this.third = third;
-    }
+//     public MaximumFinder(T first, T second, T third) {
+//         this.first = first;
+//         this.second = second;
+//         this.third = third;
+//     }
 
-    public T findMaximum() {
-        T max = first;
-        if (second.compareTo(max) > 0) {
-            max = second;
+//     public T findMaximum() {
+//         T max = first;
+//         if (second.compareTo(max) > 0) {
+//             max = second;
+//         }
+//         if (third.compareTo(max) > 0) {
+//             max = third;
+//         }
+//         return max;
+//     }
+// }
+
+// public class BoundedGenericDemo {
+//     public static void main(String[] args) {
+//         MaximumFinder<Integer> intMax = new MaximumFinder<>(10, 25, 15);
+//         System.out.println("Maximum of Integers: " + intMax.findMaximum());
+
+//         MaximumFinder<Double> doubleMax = new MaximumFinder<>(12.5, 7.8, 19.3);
+//         System.out.println("Maximum of Doubles: " + doubleMax.findMaximum());
+//     }
+// }
+
+
+
+
+// W.A.P to demonstrate exception handling using try-catch-finally (divide by zero)
+
+
+// class Exception{
+//     public static void main(String args[]){
+//         int a = 10;
+//         int b = 0;
+
+//         try{
+//             int result = a/b;
+//             System.out.println("Results: "+result);
+//         } catch(ArithmeticException e){
+//             System.out.println("Mathematical error");
+//         } finally{
+//             System.out.println("Final blocked is executed");
+//         }
+
+//         System.out.println("Program is runned succesfully");
+//     }
+// }
+
+
+
+// W.A.P to read and write data to a file using BufferedReader and BufferedWriter
+
+
+import java.io.*;
+
+class FileDemo{
+    public static void main(String args[]){
+        try{
+            //Wiriting to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter("text.txt"));
+            bw.write("Hello Suraj");
+            bw.newLine();
+            bw.write("File Handling");
+            bw.close();
+
+
+            BufferedReader br = new BufferedReader(new FileReader("text.txt"));
+            String line;
+
+            while ((line = br.readLine()) != null){
+                System.out.println(line);
+            }
+
+            br.close();
+        } catch  (IOException e) {
+            System.out.println("Error Occurred ");
         }
-        if (third.compareTo(max) > 0) {
-            max = third;
-        }
-        return max;
-    }
-}
-
-public class BoundedGenericDemo {
-    public static void main(String[] args) {
-        MaximumFinder<Integer> intMax = new MaximumFinder<>(10, 25, 15);
-        System.out.println("Maximum of Integers: " + intMax.findMaximum());
-
-        MaximumFinder<Double> doubleMax = new MaximumFinder<>(12.5, 7.8, 19.3);
-        System.out.println("Maximum of Doubles: " + doubleMax.findMaximum());
     }
 }
