@@ -397,29 +397,49 @@
 // W.A.P to read and write data to a file using BufferedReader and BufferedWriter
 
 
-import java.io.*;
+// import java.io.*;
 
-class FileDemo{
-    public static void main(String args[]){
-        try{
-            //Wiriting to the file
-            BufferedWriter bw = new BufferedWriter(new FileWriter("text.txt"));
-            bw.write("Hello Suraj");
-            bw.newLine();
-            bw.write("File Handling");
-            bw.close();
+// class FileDemo{
+//     public static void main(String args[]){
+//         try{
+//             //Wiriting to the file
+//             BufferedWriter bw = new BufferedWriter(new FileWriter("text.txt"));
+//             bw.write("Hello Suraj");
+//             bw.newLine();
+//             bw.write("File Handling");
+//             bw.close();
 
 
-            BufferedReader br = new BufferedReader(new FileReader("text.txt"));
-            String line;
+//             BufferedReader br = new BufferedReader(new FileReader("text.txt"));
+//             String line;
 
-            while ((line = br.readLine()) != null){
-                System.out.println(line);
-            }
+//             while ((line = br.readLine()) != null){
+//                 System.out.println(line);
+//             }
 
-            br.close();
-        } catch  (IOException e) {
-            System.out.println("Error Occurred ");
-        }
-    }
-}
+//             br.close();
+//         } catch  (IOException e) {
+//             System.out.println("Error Occurred ");
+//         }
+//     }
+// }
+
+
+
+
+// // Java Program to find the Factorial of a number using Recursion
+// class oops {
+//     static int factorial(int n) {
+//         if (n == 0 || n == 1) {
+//             return 1;  
+//         } else {
+//             return n * factorial(n - 1);  
+//         }
+//     }
+
+//     public static void main(String args[]) {
+//         System.out.println("Factorial is " + factorial(5));
+//     }
+// }
+
+
