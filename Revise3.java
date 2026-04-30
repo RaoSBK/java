@@ -45,34 +45,131 @@
 // start() vs run()
 
 
-class MyRunnable implements Runnable {
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("Thread running: " + i);
-            try {
-                Thread.sleep(500); // pause for 0.5 sec
-            } catch (InterruptedException e) {
-                System.out.println("Thread interrupted!");
-            }
+// class MyRunnable implements Runnable {
+//     public void run() {
+//         for (int i = 1; i <= 5; i++) {
+//             System.out.println("Thread running: " + i);
+//             try {
+//                 Thread.sleep(500); // pause for 0.5 sec
+//             } catch (InterruptedException e) {
+//                 System.out.println("Thread interrupted!");
+//             }
+//         }
+//     }
+// }
+
+// public class Revise3 {
+//     public static void main(String[] args) {
+//         MyRunnable task = new MyRunnable();
+
+//         Thread t1 = new Thread(task);
+
+//         t1.start();
+
+//         for (int i = 1; i <= 5; i++) {
+//             System.out.println("Main thread: " + i);
+//             try {
+//                 Thread.sleep(500);
+//             } catch (InterruptedException e) {
+//                 System.out.println("Main thread interrupted!");
+//             }
+//         }
+//     }
+// }
+
+
+
+// Question 3
+
+// Write a Java program to read and write data to a file using BufferedReader and BufferedWriter. Explain the difference between byte streams and character streams.
+
+// 👉 Revise:
+
+// File handling
+// Buffered classes
+// Streams (VERY IMPORTANT)
+
+
+// import java.io.*;
+
+// public class FileReadWriteDemo {
+//     public static void main(String[] args) {
+//         String fileName = "example.txt";
+
+//         try {
+//             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+//             writer.write("Hello, this is a test file.");
+//             writer.newLine(); // adds a newline
+//             writer.write("BufferedWriter makes writing efficient.");
+//             writer.close();
+//             System.out.println("Data written to file successfully.");
+
+//             BufferedReader reader = new BufferedReader(new FileReader(fileName));
+//             String line;
+//             System.out.println("\nReading from file:");
+//             while ((line = reader.readLine()) != null) {
+//                 System.out.println(line);
+//             }
+//             reader.close();
+
+//         } catch (IOException e) {
+//             System.out.println("An error occurred: " + e.getMessage());
+//         }
+//     }
+// }
+
+
+// Write a Java program to implement a generic class and a generic method. Also explain bounded types with example.
+
+// 👉 Revise:
+
+// Generics
+// <T> syntax
+// Generic class vs method
+// <T extends Number>
+
+
+class Box<T> {
+    private T value;
+
+    public Box(T value) {
+        this.value = value;
+    }
+
+    
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+}
+
+class GenericMethodDemo {
+    public static <T> void printArray(T[] array) {
+        for (T element : array) {
+            System.out.print(element + " ");
         }
+        System.out.println();
     }
 }
 
 public class Revise3 {
     public static void main(String[] args) {
-        MyRunnable task = new MyRunnable();
+        Box<Integer> intBox = new Box<>(100);
+        Box<String> strBox = new Box<>("Hello Generics");
 
-        Thread t1 = new Thread(task);
+        System.out.println("Integer Box contains: " + intBox.getValue());
+        System.out.println("String Box contains: " + strBox.getValue());
 
-        t1.start();
+        Integer[] intArray = {1, 2, 3, 4, 5};
+        String[] strArray = {"A", "B", "C"};
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("Main thread: " + i);
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                System.out.println("Main thread interrupted!");
-            }
-        }
+        System.out.print("Integer Array: ");
+        GenericMethodDemo.printArray(intArray);
+
+        System.out.print("String Array: ");
+        GenericMethodDemo.printArray(strArray);
     }
 }
