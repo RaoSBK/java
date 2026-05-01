@@ -129,47 +129,180 @@
 // <T extends Number>
 
 
-class Box<T> {
-    private T value;
+// class Box<T> {
+//     private T value;
 
-    public Box(T value) {
-        this.value = value;
-    }
+//     public Box(T value) {
+//         this.value = value;
+//     }
 
     
-    public T getValue() {
-        return value;
-    }
+//     public T getValue() {
+//         return value;
+//     }
 
-    public void setValue(T value) {
-        this.value = value;
-    }
-}
+//     public void setValue(T value) {
+//         this.value = value;
+//     }
+// }
 
-class GenericMethodDemo {
-    public static <T> void printArray(T[] array) {
-        for (T element : array) {
-            System.out.print(element + " ");
+// class GenericMethodDemo {
+//     public static <T> void printArray(T[] array) {
+//         for (T element : array) {
+//             System.out.print(element + " ");
+//         }
+//         System.out.println();
+//     }
+// }
+
+// public class Revise3 {
+//     public static void main(String[] args) {
+//         Box<Integer> intBox = new Box<>(100);
+//         Box<String> strBox = new Box<>("Hello Generics");
+
+//         System.out.println("Integer Box contains: " + intBox.getValue());
+//         System.out.println("String Box contains: " + strBox.getValue());
+
+//         Integer[] intArray = {1, 2, 3, 4, 5};
+//         String[] strArray = {"A", "B", "C"};
+
+//         System.out.print("Integer Array: ");
+//         GenericMethodDemo.printArray(intArray);
+
+//         System.out.print("String Array: ");
+//         GenericMethodDemo.printArray(strArray);
+//     }
+// }
+
+
+
+// Write a Java program to demonstrate thread synchronization using the synchronized keyword. Explain race condition with example.
+
+// 👉 Revise:
+
+// Synchronization
+// synchronized method/block
+// Critical section
+// Race condition (VERY IMPORTANT THEORY)
+
+
+
+// class Counter {
+//     private int count = 0;
+
+//     public synchronized void increment() {
+//         count++;
+//     }
+
+//     public int getCount() {
+//         return count;
+//     }
+// }
+
+// public class Revise3 {
+//     public static void main(String[] args) {
+//         Counter counter = new Counter();
+
+//         Thread t1 = new Thread(() -> {
+//             for (int i = 0; i < 1000; i++) {
+//                 counter.increment();
+//             }
+//         });
+
+//         Thread t2 = new Thread(() -> {
+//             for (int i = 0; i < 1000; i++) {
+//                 counter.increment();
+//             }
+//         });
+
+//         t1.start();
+//         t2.start();
+
+//         try {
+//             t1.join();
+//             t2.join();
+//         } catch (InterruptedException e) {
+//             e.printStackTrace();
+//         }
+
+//         System.out.println("Final Count: " + counter.getCount());
+//     }
+// }
+
+
+
+
+// Question 6
+
+// Write a Java program to demonstrate inter-thread communication using wait(), notify(), and notifyAll() methods.
+
+// 👉 Revise:
+
+// Thread communication
+// Producer–Consumer concept
+// Must use synchronized block
+
+
+
+import java.util.LinkedList;
+
+class SharedBuffer {
+    private LinkedList<Integer> buffer = new LinkedList<>();
+    private int capacity = 5;
+
+    public void produce(int value) throws InterruptedException {
+        synchronized (this) {
+            while (buffer.size() == capacity) {
+                System.out.println("Buffer full, producer waiting...");
+                wait(); 
+            }
+            buffer.add(value);
+            System.out.println("Produced: " + value);
+            notify();
         }
-        System.out.println();
+    }
+
+    public void consume() throws InterruptedException {
+        synchronized (this) {
+            while (buffer.isEmpty()) {
+                System.out.println("Buffer empty, consumer waiting...");
+                wait();
+            }
+            int value = buffer.removeFirst();
+            System.out.println("Consumed: " + value);
+            notify(); 
+        }
     }
 }
 
 public class Revise3 {
     public static void main(String[] args) {
-        Box<Integer> intBox = new Box<>(100);
-        Box<String> strBox = new Box<>("Hello Generics");
+        SharedBuffer buffer = new SharedBuffer();
 
-        System.out.println("Integer Box contains: " + intBox.getValue());
-        System.out.println("String Box contains: " + strBox.getValue());
+        Thread producer = new Thread(() -> {
+            int i = 1;
+            try {
+                while (true) {
+                    buffer.produce(i++);
+                    Thread.sleep(500);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-        Integer[] intArray = {1, 2, 3, 4, 5};
-        String[] strArray = {"A", "B", "C"};
+        Thread consumer = new Thread(() -> {
+            try {
+                while (true) {
+                    buffer.consume();
+                    Thread.sleep(1000);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-        System.out.print("Integer Array: ");
-        GenericMethodDemo.printArray(intArray);
-
-        System.out.print("String Array: ");
-        GenericMethodDemo.printArray(strArray);
+        producer.start();
+        consumer.start();
     }
 }
