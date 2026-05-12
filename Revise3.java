@@ -244,65 +244,68 @@
 
 
 
-import java.util.LinkedList;
+// import java.util.LinkedList;
 
-class SharedBuffer {
-    private LinkedList<Integer> buffer = new LinkedList<>();
-    private int capacity = 5;
+// class SharedBuffer {
+//     private LinkedList<Integer> buffer = new LinkedList<>();
+//     private int capacity = 5;
 
-    public void produce(int value) throws InterruptedException {
-        synchronized (this) {
-            while (buffer.size() == capacity) {
-                System.out.println("Buffer full, producer waiting...");
-                wait(); 
-            }
-            buffer.add(value);
-            System.out.println("Produced: " + value);
-            notify();
-        }
-    }
+//     public void produce(int value) throws InterruptedException {
+//         synchronized (this) {
+//             while (buffer.size() == capacity) {
+//                 System.out.println("Buffer full, producer waiting...");
+//                 wait(); 
+//             }
+//             buffer.add(value);
+//             System.out.println("Produced: " + value);
+//             notify();
+//         }
+//     }
 
-    public void consume() throws InterruptedException {
-        synchronized (this) {
-            while (buffer.isEmpty()) {
-                System.out.println("Buffer empty, consumer waiting...");
-                wait();
-            }
-            int value = buffer.removeFirst();
-            System.out.println("Consumed: " + value);
-            notify(); 
-        }
-    }
-}
+//     public void consume() throws InterruptedException {
+//         synchronized (this) {
+//             while (buffer.isEmpty()) {
+//                 System.out.println("Buffer empty, consumer waiting...");
+//                 wait();
+//             }
+//             int value = buffer.removeFirst();
+//             System.out.println("Consumed: " + value);
+//             notify(); 
+//         }
+//     }
+// }
 
-public class Revise3 {
-    public static void main(String[] args) {
-        SharedBuffer buffer = new SharedBuffer();
+// public class Revise3 {
+//     public static void main(String[] args) {
+//         SharedBuffer buffer = new SharedBuffer();
 
-        Thread producer = new Thread(() -> {
-            int i = 1;
-            try {
-                while (true) {
-                    buffer.produce(i++);
-                    Thread.sleep(500);
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+//         Thread producer = new Thread(() -> {
+//             int i = 1;
+//             try {
+//                 while (true) {
+//                     buffer.produce(i++);
+//                     Thread.sleep(500);
+//                 }
+//             } catch (InterruptedException e) {
+//                 e.printStackTrace();
+//             }
+//         });
 
-        Thread consumer = new Thread(() -> {
-            try {
-                while (true) {
-                    buffer.consume();
-                    Thread.sleep(1000);
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+//         Thread consumer = new Thread(() -> {
+//             try {
+//                 while (true) {
+//                     buffer.consume();
+//                     Thread.sleep(1000);
+//                 }
+//             } catch (InterruptedException e) {
+//                 e.printStackTrace();
+//             }
+//         });
 
-        producer.start();
-        consumer.start();
-    }
-}
+//         producer.start();
+//         consumer.start();
+//     }
+// }
+
+
+

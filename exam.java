@@ -160,25 +160,177 @@
 
 
 
-// Step 1: Create Interface
-interface Add {
-    void sum(int a, int b);
+// // Step 1: Create Interface
+// interface Add {
+//     void sum(int a, int b);
+// }
+
+// // Step 2: Implement Interface
+// class Calculation implements Add {
+
+//     public void sum(int a, int b) {
+//         int result = a + b;
+//         System.out.println("Sum = " + result);
+//     }
+// }
+
+// // Step 3: Main Class
+// public class exam {
+//     public static void main(String[] args) {
+
+//         Add obj = new Calculation();   // Interface reference
+//         obj.sum(10, 20);
+//     }
+// }
+
+
+// Write a program to perform run time polymorphism 
+
+
+// class Animal{
+//     void sound (){
+//         System.out.println("Animal make sounds");
+//     }
+// }
+
+
+// class Dog extends Animal {
+//     void sound(){
+//         System.out.println("Dog barks");
+//     }
+// }
+
+
+
+// class cat extends Animal{
+//     void sound(){
+//         System.out.println("Cat meows");
+//     }
+// }
+
+
+// class exam{
+//     public static void main(String args[]){
+
+//         Animal obj;
+
+//         obj = new Dog();
+//         obj.sound();
+
+//         obj = new cat();
+//         obj.sound();
+//     }
+// }
+
+
+// Write a program to implement sum of even numbers in the given array list
+
+// import java.util.Scanner;
+
+// class sumOfEvenNums {
+
+//     int sum = 0;
+
+//     void findSum(int arr[], int n) {
+
+//         for (int i = 0; i < n; i++) {
+
+//             if (arr[i] % 2 == 0) {
+
+//                 sum = sum + arr[i];
+//             }
+//         }
+
+//         System.out.println("Sum of even numbers = " + sum);
+//     }
+// }
+
+// class exam {
+
+//     public static void main(String args[]) {
+
+//         Scanner sc = new Scanner(System.in);
+
+//         System.out.println("Enter the array size: ");
+//         int n = sc.nextInt();
+
+//         int arr[] = new int[n];
+
+//         System.out.println("Enter array elements:");
+
+//         for (int i = 0; i < n; i++) {
+
+//             arr[i] = sc.nextInt();
+//         }
+
+//         sumOfEvenNums obj = new sumOfEvenNums();
+
+//         obj.findSum(arr, n);
+//     }
+// }
+
+
+
+
+
+
+// Write a program to implement arithmatic operation using abstract class
+
+import java.util.Scanner;
+
+abstract class Arithmetic {
+
+    int a, b;
+
+    abstract void add();
+
+    abstract void sub();
+
+    abstract void mul();
+
+    abstract void div();
 }
+class Calculate extends Arithmetic {
 
-// Step 2: Implement Interface
-class Calculation implements Add {
+    void add() {
+        System.out.println("Addition = " + (a + b));
+    }
 
-    public void sum(int a, int b) {
-        int result = a + b;
-        System.out.println("Sum = " + result);
+    void sub() {
+        System.out.println("Subtraction = " + (a - b));
+    }
+
+    void mul() {
+        System.out.println("Multiplication = " + (a * b));
+    }
+
+    void div() {
+
+        if (b != 0)
+            System.out.println("Division = " + (a / b));
+        else
+            System.out.println("Division by zero not possible");
     }
 }
 
-// Step 3: Main Class
-public class exam {
-    public static void main(String[] args) {
 
-        Add obj = new Calculation();   // Interface reference
-        obj.sum(10, 20);
+
+class exam {
+
+    public static void main(String args[]) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Calculate obj = new Calculate();
+
+        System.out.println("Enter two numbers:");
+
+        obj.a = sc.nextInt();
+        obj.b = sc.nextInt();
+
+        obj.add();
+        obj.sub();
+        obj.mul();
+        obj.div();
     }
 }
